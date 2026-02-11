@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #0b1f36;
+  --ink-muted: #4b5f7b;
+  --surface: rgba(255, 255, 255, 0.96);
+  --surface-soft: rgba(255, 255, 255, 0.12);
+  --accent: #c8a456;
+  --accent-deep: #8d6b2b;
+  --shadow-strong: 0 20px 40px rgba(12, 28, 52, 0.22);
+  --shadow-soft: 0 12px 26px rgba(12, 28, 52, 0.16);
+  --radius-lg: 26px;
+  --radius-md: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: #0a1626;
+  color: var(--ink);
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ink);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background: var(--background-image, none) center/cover no-repeat;
+  opacity: 0.18;
+  filter: saturate(0.9) contrast(1.05);
+  transform: scale(1.05);
+}
+
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 20% 10%, rgba(255, 255, 255, 0.16), transparent 60%),
+    radial-gradient(55% 50% at 80% 0%, rgba(255, 255, 255, 0.08), transparent 65%),
+    linear-gradient(180deg, rgba(5, 18, 36, 0.86) 0%, rgba(5, 18, 36, 0.95) 70%);
+}
+
+.hero {
+  padding: 3.5rem 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.brand {
+  max-width: 960px;
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  color: #f2f6ff;
+}
+
+.brand-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.32));
+}
+
+.brand-text h1 {
+  margin: 0.3rem 0 0.8rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  margin: 0;
+  color: rgba(242, 246, 255, 0.8);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  max-width: 38ch;
+  color: rgba(242, 246, 255, 0.85);
+}
+
+.content {
+  display: grid;
+  gap: 2rem;
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cards {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+  text-align: center;
+  box-shadow: var(--shadow-strong);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 42px rgba(12, 28, 52, 0.26);
+}
+
+.icon-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #f7f1dc;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.card p {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.primary {
+  border: none;
+  background: #0d2f55;
+  color: #f7f7f7;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-area {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.6rem;
+  color: #f2f6ff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 18px 36px rgba(9, 20, 36, 0.35);
+}
+
+.form-header h2 {
+  margin: 0 0 0.4rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+}
+
+.form-header p {
+  margin: 0 0 1.4rem;
+  color: rgba(242, 246, 255, 0.8);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+input,
+textarea {
+  border: none;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  font-family: inherit;
+  background: rgba(7, 18, 34, 0.55);
+  color: #f7f9ff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 10px 18px rgba(4, 12, 24, 0.35);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(240, 214, 142, 0.6),
+    0 12px 20px rgba(4, 12, 24, 0.45);
+  transform: translateY(-1px);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(247, 249, 255, 0.6);
+}
+
+.cta {
+  border: none;
+  background: linear-gradient(135deg, #f2dba0, #b28a45);
+  color: #1f2d3f;
+  font-weight: 700;
+  padding: 0.9rem 1.2rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(240, 214, 142, 0.85);
+  outline-offset: 3px;
+}
+
+.footer {
+  padding: 2rem 1.5rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  color: rgba(242, 246, 255, 0.85);
+}
+
+.footer-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  max-width: 640px;
+}
+
+.footer-logo {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+}
+
+.footer-text p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 720px) {
+  .brand {
+    grid-template-columns: auto 1fr;
+    text-align: left;
+    justify-items: start;
+  }
+
+  .brand-logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form label.full {
+    grid-column: 1 / -1;
+  }
+
+  .cta {
+    grid-column: 1 / -1;
+    justify-self: center;
+    min-width: 220px;
+  }
+
+  .footer-wrap {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card,
+  .form-area,
+  .footer-wrap {
+    animation: rise 0.8s ease forwards;
+  }
+
+  .card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .card:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .form-area {
+    animation-delay: 0.25s;
+  }
+
+  .footer-wrap {
+    animation-delay: 0.35s;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

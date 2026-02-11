@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mensagens Recebidas - CEIRF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-logos">
+            <img
+              src="./assets/Sem Título.png"
+              alt="Logo da Secretaria da Segurança Pública"
+              class="logo main"
+            />
+            <img
+              src="./assets/cc61f442-25b3-48aa-9391-f21a016dfcb9.png"
+              alt="Logo da CEIRF"
+              class="logo secondary"
+            />
+          </div>
+          <div class="brand-text">
+            <p class="eyebrow">Painel público · Carnaval 2026</p>
+            <h1>Coordenação Executiva da Infraestrutura da Rede Física</h1>
+            <p class="subtitle">
+              Mensagens recebidas do formulário oficial da CEIRF · Visão geral para acompanhamento
+              público.
+            </p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="refreshBtn" class="btn primary">Atualizar</button>
+          <label class="switch">
+            <input id="autoRefresh" type="checkbox" />
+            <span>Auto (30s)</span>
+          </label>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div class="stat-card">
+          <span>Total</span>
+          <strong id="totalCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Exibindo</span>
+          <strong id="visibleCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Status</span>
+          <strong id="statusLabel">Conectando...</strong>
+        </div>
+      </section>
+
+      <section class="filters">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Buscar por nome, contato, posto ou mensagem"
+          aria-label="Buscar"
+        />
+      </section>
+
+      <section class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Protocolo</th>
+              <th>Data/Hora</th>
+              <th>Nome</th>
+              <th>Força</th>
+              <th>Posto</th>
+              <th>Contato</th>
+              <th>Mensagem</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="messageBody"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <template id="rowTemplate">
+      <tr>
+        <td data-field="protocol"></td>
+        <td data-field="created_at"></td>
+        <td data-field="name"></td>
+        <td data-field="force"></td>
+        <td data-field="post"></td>
+        <td data-field="contact"></td>
+        <td data-field="message"></td>
+        <td data-field="status"></td>
+      </tr>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
