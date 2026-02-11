@@ -22,7 +22,6 @@
 
 .carnaval-page {
   position: relative;
-  min-height: 100vh;
   overflow: hidden;
   isolation: isolate;
   color: var(--carnaval-ink);
@@ -58,6 +57,16 @@
   z-index: -1;
 }
 
+.carnaval-shell {
+  width: min(calc(100% - 3rem), 1100px);
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
 .decor {
   position: absolute;
   width: clamp(90px, 18vw, 180px);
@@ -91,12 +100,10 @@
 }
 
 .carnaval-hero {
-  padding: 3.5rem 1.5rem 2rem;
+  padding: 3.5rem 0 2rem;
   display: grid;
   gap: 2rem;
   align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .hero-badge {
@@ -175,6 +182,9 @@
   padding: 0.75rem 1.4rem;
   border-radius: 999px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .hero-button.primary {
@@ -194,6 +204,12 @@
   box-shadow: 0 14px 28px rgba(255, 79, 163, 0.25);
 }
 
+.hero-button-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 .hero-button:focus-visible,
 .card-button:focus-visible,
 .submit:focus-visible {
@@ -202,13 +218,10 @@
 }
 
 .carnaval-content {
-  max-width: 1100px;
-  margin: 0 auto 3.5rem;
-  padding: 0 1.5rem;
+  margin: 0;
+  padding: 0;
   display: grid;
   gap: 2.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 .channels {
@@ -429,13 +442,107 @@
   font-size: 0.9rem;
 }
 
+.superintendencias {
+  display: grid;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--carnaval-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--carnaval-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.super-header h2 {
+  margin: 0 0 0.6rem;
+  font-family: "Bungee", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--carnaval-pink-strong);
+}
+
+.super-header p {
+  margin: 0;
+  color: var(--carnaval-ink-soft);
+}
+
+.super-grid {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.super-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--carnaval-radius-md);
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+  box-shadow: var(--carnaval-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  text-align: left;
+  justify-items: start;
+  overflow: hidden;
+}
+
+.super-logo {
+  width: clamp(120px, 30vw, 180px);
+  height: auto;
+  justify-self: start;
+}
+
+.super-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--carnaval-ink);
+}
+
+.super-subtitle {
+  margin: 0;
+  color: var(--carnaval-ink-soft);
+  font-weight: 600;
+}
+
+.super-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--carnaval-ink-soft);
+  display: grid;
+  gap: 0.35rem;
+  list-style: disc;
+}
+
+.super-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 700;
+  color: var(--carnaval-ink);
+  justify-content: flex-start;
+}
+
+.super-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: #2b0f3e;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.super-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(43, 15, 62, 0.25);
+}
+
 .carnaval-footer {
-  padding: 2.5rem 1.5rem 3rem;
+  padding: 0 0 3rem;
 }
 
 .footer-note {
-  max-width: 1100px;
-  margin: 0 auto 1.6rem;
+  margin: 0 0 1.6rem;
   padding: 1rem 1.2rem;
   text-align: center;
   color: var(--carnaval-ink-soft);
@@ -451,8 +558,7 @@
 }
 
 .footer-grid {
-  max-width: 1100px;
-  margin: 0 auto;
+  margin: 0;
   display: grid;
   gap: 1.2rem;
   align-items: center;
@@ -503,6 +609,10 @@
     justify-self: start;
   }
 
+  .super-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .footer-grid {
     grid-template-columns: auto 1fr auto;
     text-align: left;
@@ -531,6 +641,102 @@
 @media (max-width: 600px) {
   .decor {
     opacity: 0.4;
+  }
+
+  .carnaval-page {
+    overflow: visible;
+  }
+
+  .carnaval-shell {
+    width: min(calc(100% - 2rem), 560px);
+    gap: 2rem;
+  }
+
+  .carnaval-hero {
+    padding: 2.6rem 0 1.4rem;
+    text-align: center;
+  }
+
+  .hero-badge {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .logo-stack {
+    justify-items: center;
+  }
+
+  .hero-text {
+    justify-items: center;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .carnaval-content {
+    gap: 2rem;
+  }
+
+  .channel-card {
+    padding: 1.4rem;
+  }
+
+  .direct-message {
+    padding: 1.5rem;
+  }
+
+  .direct-text {
+    text-align: center;
+    display: grid;
+    justify-items: center;
+  }
+
+  .direct-pill {
+    justify-self: center;
+  }
+
+  .direct-form {
+    gap: 0.9rem;
+  }
+
+  .superintendencias {
+    padding: 1.5rem;
+  }
+
+  .super-header {
+    text-align: center;
+  }
+
+  .super-card {
+    text-align: left;
+    justify-items: start;
+  }
+
+  .super-logo {
+    justify-self: start;
+  }
+
+  .super-list {
+    padding-left: 1.1rem;
+    list-style: disc;
+    justify-items: start;
+  }
+
+  .super-contact {
+    justify-content: flex-start;
+  }
+
+  .super-button {
+    width: 100%;
   }
 }
 

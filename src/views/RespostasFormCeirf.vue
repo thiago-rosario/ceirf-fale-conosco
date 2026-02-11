@@ -8,7 +8,7 @@
         </div>
         <div class="brand-text">
           <p class="eyebrow">Painel de mensagens · Carnaval 2026</p>
-          <h1>Coordenação Executiva da Infraestrutura da Rede Física</h1>
+          <h1>Coordenação Executiva de Infraestrutura da Rede Física</h1>
           <p class="subtitle">
             Listagem das mensagens enviadas pelo formulário oficial. Atualize para acompanhar em
             tempo real.
@@ -134,14 +134,7 @@ const filteredMessages = computed(() => {
     const matchesForce = !forceFilter.value || item.force === forceFilter.value
     if (!matchesForce) return false
     if (!text) return true
-    const haystack = [
-      item.name,
-      item.force,
-      item.post,
-      item.contact,
-      item.message,
-      item.status,
-    ]
+    const haystack = [item.name, item.force, item.post, item.contact, item.message, item.status]
       .join(' ')
       .toLowerCase()
     return haystack.includes(text)

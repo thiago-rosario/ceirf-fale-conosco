@@ -7,31 +7,40 @@
     <img class="decor trio" :src="trioImage" alt="" aria-hidden="true" />
     <img class="decor mascarados" :src="mascaradosImage" alt="" aria-hidden="true" /> -->
 
-    <header class="carnaval-hero">
-      <div class="hero-badge">
-        <img class="logo-main" :src="logoSsp" alt="Logo da Secretaria da Segurança Pública" />
-        <div class="logo-stack">
-          <!-- <img class="logo-secondary" :src="logoEstado" alt="Logo do Governo da Bahia" /> -->
-          <span class="hero-tag">Contato Oficial</span>
+    <div class="carnaval-shell">
+      <header class="carnaval-hero">
+        <div class="hero-badge">
+          <img class="logo-main" :src="logoSsp" alt="Logo da Secretaria da Segurança Pública" />
+          <div class="logo-stack">
+            <!-- <img class="logo-secondary" :src="logoEstado" alt="Logo do Governo da Bahia" /> -->
+            <span class="hero-tag">Contato Oficial</span>
+          </div>
         </div>
-      </div>
-      <div class="hero-text">
-        <p class="eyebrow">Carnaval da Bahia 2026</p>
-        <h1>Entre em contato com a CEIRF neste Carnaval</h1>
-        <p class="subtitle">
-          Atendimento rápido durante o Carnaval. Escolha um canal ou envie sua mensagem diretamente
-          para nossa equipe.
-        </p>
+        <div class="hero-text">
+          <p class="eyebrow">Carnaval da Bahia 2026</p>
+          <h1>Entre em contato com a CEIRF neste Carnaval</h1>
+          <p class="subtitle">
+            Atendimento rápido durante o Carnaval. Escolha um canal ou envie sua mensagem diretamente
+            para nossa equipe.
+          </p>
         <div class="hero-actions">
           <a class="hero-button primary" :href="whatsAppLink" target="_blank" rel="noopener"
             >Falar no WhatsApp</a
           >
           <a class="hero-button ghost" href="#mensagem-direta">Enviar mensagem</a>
+          <a class="hero-button ghost" :href="sgtoPhoneLink">
+            <img class="hero-button-icon" :src="logoSgto" alt="" aria-hidden="true" />
+            Fale com a SGTO
+          </a>
+          <a class="hero-button ghost" :href="stelecomPhoneLink">
+            <img class="hero-button-icon" :src="logoStelecom" alt="" aria-hidden="true" />
+            Fale com a STELECOM
+          </a>
         </div>
       </div>
     </header>
 
-    <main class="carnaval-content">
+      <main class="carnaval-content">
       <section class="channels" aria-label="Canais de contato">
         <article class="channel-card">
           <div class="icon-wrap" aria-hidden="true">
@@ -174,24 +183,68 @@
           </button>
         </form>
       </section>
-    </main>
 
-    <footer class="carnaval-footer">
-      <div class="footer-note">
-        <p>
-          Elogios ou solicitações? Como podemos melhorar? Queremos ouvir você — envie seu feedback à
-          CEIRF.
-        </p>
-      </div>
-      <div class="footer-grid">
-        <img class="footer-logo" :src="logoCeirf" alt="Logo da CEIRF" />
-        <div class="footer-text">
-          <p class="footer-title">CEIRF - Coordenação Executiva de Infraestrutura da Rede Física</p>
-          <p>Secretaria da Segurança Pública - Governo da Bahia</p>
+      <section class="superintendencias" aria-label="Fale com nossas superintendências">
+        <div class="super-header">
+          <h2>Fale com as superintendências</h2>
+          <p>Contato direto para suporte e atendimento especializado durante o Carnaval.</p>
         </div>
-        <img class="footer-logo secondary" :src="logoSsp" alt="Logo da SSP" />
-      </div>
-    </footer>
+        <div class="super-grid">
+          <article class="super-card">
+            <img class="super-logo" :src="logoSgto" alt="Logo da SGTO" />
+            <h3>SGTO</h3>
+            <p class="super-subtitle">Suporte TI</p>
+            <ul class="super-list">
+              <li>Computadores</li>
+              <li>Impressoras</li>
+              <li>Link de dados</li>
+              <li>Internet</li>
+              <li>Câmeras de videomonitoramento</li>
+              <li>Câmeras de CFTV</li>
+              <li>Câmeras corporais</li>
+            </ul>
+            <div class="super-contact">
+              <span>{{ sgtoPhoneDisplay }}</span>
+              <a class="super-button" :href="sgtoPhoneLink">Ligue agora</a>
+            </div>
+          </article>
+
+          <article class="super-card">
+            <img class="super-logo" :src="logoStelecom" alt="Logo da STELECOM" />
+            <h3>STELECOM</h3>
+            <p class="super-subtitle">Telefonia e Radiocomunicação</p>
+            <ul class="super-list">
+              <li>Telefonia</li>
+              <li>Radiocomunicação</li>
+              <li>Monitoramento de trios e patrulhas</li>
+              <li>Atendimento: 190, 193, 197</li>
+            </ul>
+            <div class="super-contact">
+              <span>{{ stelecomPhoneDisplay }}</span>
+              <a class="super-button" :href="stelecomPhoneLink">Ligue agora</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      </main>
+
+      <footer class="carnaval-footer">
+        <div class="footer-note">
+          <p>
+            Elogios ou solicitações? Como podemos melhorar? Queremos ouvir você — envie seu feedback à
+            CEIRF.
+          </p>
+        </div>
+        <div class="footer-grid">
+          <img class="footer-logo" :src="logoCeirf" alt="Logo da CEIRF" />
+          <div class="footer-text">
+            <p class="footer-title">CEIRF - Coordenação Executiva de Infraestrutura da Rede Física</p>
+            <p>Secretaria da Segurança Pública - Governo da Bahia</p>
+          </div>
+          <img class="footer-logo secondary" :src="logoSsp" alt="Logo da SSP" />
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -202,6 +255,8 @@ import '../Assets/contato-carnaval.css'
 import logoSsp from '../Assets/logo-ssp.png'
 import logoCeirf from '../Assets/cc61f442-25b3-48aa-9391-f21a016dfcb9.png'
 import backgroundImage from '../Assets/442a6baa-18f8-4ea2-aba8-11d002438c6c.png'
+import logoStelecom from '../Assets/stelecom-logo.png'
+import logoSgto from '../Assets/sgto-logo.png'
 // import logoEstado from '../Assets/Logo-estado.png'
 // import confeteImage from '../Assets/Confetes_sepertina.png'
 // import mascaradosImage from '../Assets/Mascarados.png'
@@ -219,6 +274,11 @@ const contact = {
 const emailLink = `mailto:${contact.email}`
 const whatsAppLink = `https://wa.me/${contact.whatsappE164}`
 const phoneLink = `tel:${contact.phoneE164}`
+
+const sgtoPhoneDisplay = '(71) 3115-1939'
+const sgtoPhoneLink = 'tel:+557131151939'
+const stelecomPhoneDisplay = '(71) 3115-9714'
+const stelecomPhoneLink = 'tel:+557131159714'
 
 const formRef = ref(null)
 const statusMessage = ref('')
