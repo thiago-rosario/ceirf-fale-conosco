@@ -5,6 +5,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import ContatoCarnaval from './views/ContatoCarnaval.vue'
+import CodigoQR from './views/CodigoQR.vue'
 import RespostasFormCeirf from './views/RespostasFormCeirf.vue'
 
 const currentPath = ref(window.location.pathname)
@@ -12,6 +13,9 @@ const currentPath = ref(window.location.pathname)
 const currentView = computed(() => {
   if (currentPath.value === '/contato/carnaval') {
     return ContatoCarnaval
+  }
+  if (currentPath.value === '/qrcode') {
+    return CodigoQR
   }
   if (currentPath.value === '/contato/respostas' || currentPath.value === '/respostas') {
     return RespostasFormCeirf
