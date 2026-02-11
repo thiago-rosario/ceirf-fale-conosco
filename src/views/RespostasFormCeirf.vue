@@ -109,10 +109,7 @@ import '../Assets/respostas-ceirf.css'
 import logoSsp from '../Assets/logo-ssp.png'
 import logoCeirf from '../Assets/cc61f442-25b3-48aa-9391-f21a016dfcb9.png'
 import backgroundImage from '../Assets/442a6baa-18f8-4ea2-aba8-11d002438c6c.png'
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? 'http://localhost:3001' : '')
-const API_URL = `${API_BASE_URL}/api/messages`
+import { API_URL } from '../api.js'
 
 const messages = ref([])
 const totalCount = ref(0)

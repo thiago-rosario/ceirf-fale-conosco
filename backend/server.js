@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 
-const PORT = Number(process.env.PORT || 3001)
+const PORT = Number(process.env.PORT || 4001)
 const API_TOKEN = process.env.API_TOKEN || 'ceirf-2026'
 const ADMIN_USER = process.env.ADMIN_USER || ''
 const ADMIN_PASS = process.env.ADMIN_PASS || ''

@@ -1,7 +1,6 @@
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? 'http://localhost:3001' : '')
+import { API_URL } from './api.js'
+
 const API_TOKEN = import.meta.env.VITE_API_TOKEN || 'ceirf-2026'
-export const API_URL = `${API_BASE_URL}/api/messages`
 const REQUEST_TIMEOUT_MS = 12000
 
 const normalize = (value) => (typeof value === 'string' ? value.trim() : '')
