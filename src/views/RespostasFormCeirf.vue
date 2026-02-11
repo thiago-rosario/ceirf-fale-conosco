@@ -106,7 +106,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import '../Assets/respostas-ceirf.css'
-import logoSsp from '../Assets/Sem Título.png'
+import logoSsp from '../Assets/logo-ssp.png'
 import logoCeirf from '../Assets/cc61f442-25b3-48aa-9391-f21a016dfcb9.png'
 import backgroundImage from '../Assets/442a6baa-18f8-4ea2-aba8-11d002438c6c.png'
 

@@ -4,7 +4,6 @@
 
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import ContatoBase from './views/ContatoBase.vue'
 import ContatoCarnaval from './views/ContatoCarnaval.vue'
 import RespostasFormCeirf from './views/RespostasFormCeirf.vue'
 
@@ -17,7 +16,7 @@ const currentView = computed(() => {
   if (currentPath.value === '/contato/respostas' || currentPath.value === '/respostas') {
     return RespostasFormCeirf
   }
-  return ContatoBase
+  return ContatoCarnaval
 })
 
 const handlePopState = () => {
